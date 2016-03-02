@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatibale" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>
+          Andy_Lee's home page:FFT-based convolutional neural networks
+      </title>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, intial-scale=1">
+
+      <link href="http://fonts.googleapis.com/css?family=Noto Sans::400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+      <link href="/css/bootstrap.min.css" rel="stylesheet">
+      <link href="/css/abll.css" rel="stylesheet">
+      <link href="/css/pygments.css" rel="stylesheet">
+
+      
+      <meta name="og:type" content="article">
+      <meta name="og:title" content="FFT-based convolutional neural networks">
+      <meta name="og:description"
+          content="A few weeks ago, I decided to implement my own convolution operations for the GPU.My motivation was the need for an implementation that could be easily modified.Unfortunately, most implementations available online are either slow or a big mess code-wise:">
+      
+  </head>  
+
+  <body>
+      <div class="container">
+          <header>
+              <div class="row address-horizontal">
+                  <div class="col-md-4 pull-left">
+                      <address>
+                          <strong>Andy_Lee</strong>
+                          <br/>
+                          master student - <a href="mailto:690312856@qq.com">690312856@qq.com</a>
+                      </address>
+                  </div>
+                  <div class="col-md-6 pull-right address-right">
+                      <address>
+                          <a href="http://www.scut.edu.cn/sse">School of Software Engineering</a>
+                          <br/>
+                          <a href="http://www.scut.edu.cn">South China University of Technology</a>
+                      </address>  
+                  </div>
+              </div>
+              <div class="row address-vertical">
+                  <div class="col-md-12">
+                      <address>
+                          <strong>Andy_Lee</strong>
+                          <br/>
+                          master student - <a href="mailto:690312856@qq.com">690312856@qq.com</a>
+                          <br/>
+                          <a href="http://www.scut.edu.cn/sse">School of Software Engineering</a>
+                          <br/>
+                          <a href="http://www.scut.edu.cn">South China University of Technology</a>
+                      </address>  
+                  </div>
+              </div>
+
+              <nav class="navbar navbar-default" role="navigation">
+                  <div class="container-fluid">
+                      <div class="navbar-header">
+                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                          <span class="navbar-text">
+                              Menu
+                          </span>
+                          <span class="caret"></span>
+                          </button>
+                      </div>
+
+                      <div class="collapse navbar-collapse" id="navbar-collapse">
+                          <ul class="nav navbar-nav">
+                              
+                                  <li><a href="/"> Home </a></li>
+                              
+                                  <li><a href="/blog"> Blog </a></li>
+                              
+                                  <li><a href="/projects"> Projects </a></li>
+                              
+                                  <li><a href="/publications.html"> Publications </a></li>
+                              
+                                  <li><a href="/cv.html"> CV </a></li>
+                              
+                          </ul>
+                      </div>
+                  </div>
+              </nav>  
+          </header>
+          <h1>FFT-based convolutional neural networks</h1>
+
+<p>A few weeks ago, I decided to implement my own convolution operations for the GPU.
+My motivation was the need for an implementation that could be easily modified.
+Unfortunately, most implementations available online are either slow or a big mess code-wise:</p>
+
+<ul>
+<li><a href="http://code.google.com/p/cuda-convnet/">cuda_convnet</a>: Very fast thanks to the highly tuned CUDA code. The convolutions functions alone (<a href="http://code.google.com/p/cuda-convnet/source/browse/trunk/src/cudaconv2/weight_acts.cu">1</a>, <a href="http://code.google.com/p/cuda-convnet/source/browse/trunk/src/cudaconv2/filter_acts.cu">2</a>, <a href="http://code.google.com/p/cuda-convnet/source/browse/trunk/src/cudaconv2/img_acts.cu">3</a>) are several 1,000 lines of code. Impossible to edit for anyone besides the original author.</li>
+<li><a href="http://www.deeplearning.net/software/theano/">Theano</a>: Slower than cuda_convnet, still a bit messy using shared memory and other CUDA tricks.</li>
+<li><a href="http://caffe.berkeleyvision.org/">Caffe</a>: In my experience a factor of 3 slower than cuda_convnet (the authors state otherwise). Their implementation is nice and simple consisting of <a href="http://www.mathworks.se/help/images/ref/im2col.html">im2col</a> operations and cuBLAS matrix multiplications.</li>
+</ul>
+
+<p>I played around with all three above and even tried to do my own vanilla CUDA implementation (Big mistake! The performance was ~8 times slower than cuda_convnet).</p>
+
+<p>I then discovered the paper <a href="http://arxiv.org/abs/1312.5851">Fast Training of Convolutional Networks through FFTs</a>, which was quite an interesting read (if only I had found it earlier!).
+FFT-based convolutions had crossed my mind before, but I suspected the filter sizes were too small for the convolutions to be worthwhile in Fourier domain. 
+As it turns out, FFT-based convolutions are quite competitive; mainly for the following reasons:</p>
+
+<ul>
+<li>The Fourier transformations of filters can be reused as the filters are convolved with multiple images in a mini-batch.</li>
+<li>The Fourier transformations of the output gradients can be reused when back propagating gradients to both filters and input images.</li>
+<li>Summation over input channels can be performed in the Fourier domain, such that inverse Fourier transformations are only required once per output channel per image.</li>
+<li>Efficient, batched FFT implementation are available using <a href="http://docs.nvidia.com/cuda/pdf/CUFFT_Library.pdf">cuFFT</a>.</li>
+<li>The point-wise convolutions can be implemented as batched matrix multiplications using <a href="http://docs.nvidia.com/cuda/pdf/CUBLAS_Library.pdf">cuBLAS</a>.</li>
+</ul>
+
+<p>I also discovered that Sander Dieleman had experimented with <a href="http://benanne.github.io/2014/05/12/fft-convolutions-in-theano.html">FFT convolutions for Theano</a>.
+Unfortunately, his implementation does not currently include back propagation of gradients.
+Moreover, it is written in high-level Theano, which I suspect is not flexible enough for an efficient implementation.</p>
+
+<h2 id="my-implementation">My implementation</h2>
+
+<p>After the above failed attempts at doing my own convolutions, the FFT approach was a refreshing angle.
+It took some time to figure out the functioning of the <a href="http://docs.nvidia.com/cuda/cufft/#function-cufftplanmany">batched</a> cuFFT operations with <a href="http://docs.nvidia.com/cuda/cufft/#advanced-data-layout">advanced data layout</a> (which, btw., I&#39;d prefer any day over fiddling with indexing errors in ordinary convolutions!).</p>
+
+<p>I now have a working implementation with the following highlights:</p>
+
+<ul>
+<li>Supports back-propagation of gradients for both input images and filters.</li>
+<li>Supports 0-padding of image borders.</li>
+<li>No limitations on filter sizes / number of channels. Though, one should aim for image dimensions that are powers of 2, 3, 5, or 7 for faster cuFFT operations.</li>
+<li>Contains (almost) no GPU architecture specific fine-tuning. This is taken care of by cuBLAS/cuFFT.</li>
+<li>Relatively simple implementation (under <a href="http://github.com/andersbll/theano_ops/blob/master/theano_ops/abll/src/abll/conv_bc01_fft.cu">350 lines</a> at the time of writing).</li>
+</ul>
+
+<p>The implementation is still WIP but looks promising in terms of speed.
+It even comes with a crude Theano wrapper.
+Benchmarks will follow as soon as the Theano integration is done.
+I have yet to figure out how to properly handle buffers and reusing FFTs in back propagation functions.</p>
+
+<p><a href="http://github.com/andersbll/theano_ops">Check it out today!</a></p>
+
+<br/>
+<a href="/blog">Back to blog</a>
+      </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=Tex-AMS-MML_HTMLorMML"></script>
+      
+  </body>
+
+</html>
