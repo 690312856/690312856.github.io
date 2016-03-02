@@ -3,27 +3,30 @@ title: Home
 layout: default
 ---
 
-<img class="post-image" src="{{ site.baseurl }}/psb.jpeg" />
+<img class="post-image" src="{{ site.baseurl }}/images/abll.jpg" />
 
 # About me
-I'm a master student advised by [Cai Yi][rlar] in the Computational Intelligence and Knowledge Engineering Research Group.
-My work is focused on deep learning. 
+I'm a Ph.D. student advised by [Rasmus Larsen][rlar] and [Anders B. Dahl][abda] in the [Image Analysis and Computer Graphics Group][iacg].
+My work is focused on visual recognition. \[...\]
 
-[rlar]: http://www2.scut.edu.cn/s/87/t/75/34/a2/info79010.htm
-
-
+[rlar]: http://compute.dtu.dk/~rlar
+[abda]: http://compute.dtu.dk/~abda
+[iacg]: http://compute.dtu.dk/english/research/Image
 
 
 ## Interests
-* Machine learning and deep learning.
-* Images classification.
-* iOS development.
+* Machine learning and pattern recognition.
+* Computer vision and image analysis.
+* Applications of the above.
 
 
 ## Online trail
-[Weibo][weibo], [Github][github]
+[Facebook][facebook], [Github][github], [Google Plus][gplus], [Google Scholar][gscholar], [last.fm][lastfm], [LinkedIn][linkedin]
 
-[weibo]: http://weibo.com/u/3165807603
-[github]: https://github.com/690312856
-
+[facebook]: http://facebook.com/andersbll
+[github]: http://github.com/andersbll
+[gplus]: https://plus.google.com/+AndersBoesenLindboLarsen/
+[gscholar]: http://scholar.google.dk/citations?user=DrrClGgAAAAJ
+[lastfm]: http://last.fm/user/andersbll
+[linkedin]: http://linkedin.com/in/andersbll/
 
