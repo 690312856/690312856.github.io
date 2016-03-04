@@ -6,23 +6,18 @@
       <meta http-equiv="X-UA-Compatibale" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>
-          {{site.title}}{% if page.title %}:{{ page.title }}{% endif %}
+          Andy_Lee's home page:Home
       </title>
 
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, intial-scale=1">
 
       <link href="http://fonts.googleapis.com/css?family=Noto Sans::400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-      <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet">
-      <link href="{{ site.baseurl }}/css/abll.css" rel="stylesheet">
-      <link href="{{ site.baseurl }}/css/pygments.css" rel="stylesheet">
+      <link href="/css/bootstrap.min.css" rel="stylesheet">
+      <link href="/css/abll.css" rel="stylesheet">
+      <link href="/css/pygments.css" rel="stylesheet">
 
-      {% if page.date %}
-      <meta name="og:type" content="article">
-      <meta name="og:title" content="{{ page.title }}">
-      <meta name="og:description"
-          content="{{ page.excerpt | markdownify | strip_html | strip_newlines }}">
-      {% endif %}
+      
   </head>  
 
   <body>
@@ -31,29 +26,29 @@
               <div class="row address-horizontal">
                   <div class="col-md-4 pull-left">
                       <address>
-                          <strong>{{ site.author }}</strong>
+                          <strong>Andy_Lee</strong>
                           <br/>
-                          {{ site.author_title }} - <a href="mailto:{{ site.email}}">{{ site.email }}</a>
+                          master student - <a href="mailto:690312856@qq.com">690312856@qq.com</a>
                       </address>
                   </div>
                   <div class="col-md-6 pull-right address-right">
                       <address>
-                          <a href="{{ site.department_url }}">{{ site.department }}</a>
+                          <a href="http://www.scut.edu.cn/sse">School of Software Engineering</a>
                           <br/>
-                          <a href="{{ site.university_url }}">{{ site.university }}</a>
+                          <a href="http://www.scut.edu.cn">South China University of Technology</a>
                       </address>  
                   </div>
               </div>
               <div class="row address-vertical">
                   <div class="col-md-12">
                       <address>
-                          <strong>{{ site.author }}</strong>
+                          <strong>Andy_Lee</strong>
                           <br/>
-                          {{ site.author_title }} - <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+                          master student - <a href="mailto:690312856@qq.com">690312856@qq.com</a>
                           <br/>
-                          <a href="{{ site.department_url }}">{{ site.department }}</a>
+                          <a href="http://www.scut.edu.cn/sse">School of Software Engineering</a>
                           <br/>
-                          <a href="{{ site.university_url }}">{{ site.university }}</a>
+                          <a href="http://www.scut.edu.cn">South China University of Technology</a>
                       </address>  
                   </div>
               </div>
@@ -71,31 +66,47 @@
 
                       <div class="collapse navbar-collapse" id="navbar-collapse">
                           <ul class="nav navbar-nav">
-                              {% for item in site.navigation %}
-                                  <li><a href="{{ site.baseurl }}{{ item.link }}"> {{ item.title }} </a></li>
-                              {% endfor %}
+                              
+                                  <li><a href="/"> Home </a></li>
+                              
+                                  <li><a href="/blog"> Blog </a></li>
+                              
+                                  <li><a href="/projects"> Projects </a></li>
+                              
+                                  <li><a href="/publications.html"> Publications </a></li>
+                              
+                                  <li><a href="/cv.html"> CV </a></li>
+                              
                           </ul>
                       </div>
                   </div>
               </nav>  
           </header>
-          {{ content }}
+          <p><img class="post-image" src="/psb.jpeg" /></p>
+
+<h1 id="about-me">About me</h1>
+
+<p>I&#39;m a master student advised by <a href="http://www2.scut.edu.cn/s/87/t/75/34/a2/info79010.htm">Cai Yi</a> in the Computational Intelligence and Knowledge Engineering Research Group.
+My work is focused on deep learning. </p>
+
+<h2 id="interests">Interests</h2>
+
+<ul>
+<li>Machine learning and deep learning.</li>
+<li>Images classification.</li>
+<li>iOS development.</li>
+</ul>
+
+<h2 id="online-trail">Online trail</h2>
+
+<p><a href="http://weibo.com/u/3165807603">Weibo</a>, <a href="https://github.com/690312856">Github</a></p>
+
       </div>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=Tex-AMS-MML_HTMLorMML"></script>
-      {% if site.ga_id and site.ga_domain %}
-      <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r] || function(){
-            (i[r].q=i[r].q || []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create','{{ site.ga_id }}','{{ site.ga_domain }}');
-          ga('send','pageview');
-      </script>
-      {% endif %}
+      
   </body>
 
 </html>
