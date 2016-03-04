@@ -3,11 +3,6 @@ layout: default
 title: Blog
 ---
 
-<h1>{{ site.blog_title }}</h1>
-This is where I exercise my communication skills and pretend as if I know something about computer vision/machine learning.
-I aim for subjectivity over correctness in an attempt to distance myself from boring articles.
-Go ahead and subscribe to the <a class="blog-subscribe" href="{{ site.baseurl }}/blog/atom.xml">Atom feed</a>.
-
 {% for post in paginator.posts %}
 
 <article class="post-listitem">
@@ -45,26 +40,6 @@ Go ahead and subscribe to the <a class="blog-subscribe" href="{{ site.baseurl }}
       <span>Previous</span>
     </p>
   {% endif %}
-
-  <ul class="pages">
-    <li class="page">
-      {% if paginator.page == 1 %}
-        <span class="current-page">1</span>
-      {% else %}
-        <a href="/">1</a>
-      {% endif %}
-    </li>
-
-    {% for count in (2..paginator.total_pages) %}
-      <li class="page">
-        {% if count == paginator.page %}
-          <span class="current-page">{{ count }}</span>
-        {% else %}
-          <a href="/blog/page{{ count }}/">{{ count }}</a>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
 
   {% if paginator.next_page %}
     <p class="next">

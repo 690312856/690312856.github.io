@@ -6,18 +6,22 @@ layout: default
 <img class="post-image" src="{{ site.baseurl }}/psb.jpeg" />
 
 # About me
-I'm a master student advised by [Cai Yi][rlar] in the Computational Intelligence and Knowledge Engineering Research Group.
-My work is focused on deep learning. 
+I'm a master student advised by Prof. [Cai Yi][rlar] in the Computational Intelligence and Knowledge Engineering Research Group.
+Much of my work is on deep learning and its applications in Computer Vision. 
 
 [rlar]: http://www2.scut.edu.cn/s/87/t/75/34/a2/info79010.htm
 
 
 
 
-## Interests
-* Machine learning and deep learning.
-* Images classification.
-* iOS development.
+## Research
+My research focuses on:  
+
+* Speeding CNNs and extraction of discriminating power feature of image.
+
+* Trying to design a incremental classifer.
+
+* Applying computational model to real problems in computer vision and data mining.
 
 
 ## Online trail
