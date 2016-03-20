@@ -23,14 +23,14 @@ layout: default
 ##Work experience
 |||
 |---|---|
-| **2015       ** | *iOS application developer* |
+| <div style="display: inline-block;white-space: nowrap;">**2015**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> | *iOS application developer* |
 || Campus second-hand goods trading application on iOS. |
 | &nbsp;||
-| **2014       ** | *algorithm designer* |
+| **2014** | *algorithm designer* |
 || Design a parsing model dealing with the data from six-axis gyroscope |
 || to determine the toothbrush attitude. |
 | &nbsp;||
-| **2013       ** | *desktop software developer* |
+| **2013** | *desktop software developer* |
 || Construct a desktop software using Qt combined with 51 microcontroller |
 || to detect the resistance of silicon pellet automatically. |
 
