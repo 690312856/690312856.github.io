@@ -1,25 +1,22 @@
 ---
 layout: blog_post
 title: Paper Presentation(1)-ImageNet CLaaification with Deep Convolutional Neural Networks
-image: http://image.lxway.com/upload/d/5e/d5e1cd6334cbcc5ff2714620c4d29c08.gif
 date: 2016-04-07
 ---
 
-#Paper Presentation(1)#
-##ImageNet CLaaification with Deep Convolutional Neural Networks##
-###Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton###
-Download paper:[here](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks)
-###Abstract：###
+Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton
 
->We trained a large, deep convolutional neural network to classify the 1.2 million high-resolution images in the ImageNet LSVRC-2010 contest into the 1000 dif- ferent classes. On the test data, we achieved top-1 and top-5 error rates of 37.5% and 17.0% which is considerably better than the previous state-of-the-art. The neural network, which has 60 million parameters and 650,000 neurons, consists of five convolutional layers, some of which are followed by max-pooling layers, and three fully-connected layers with a final 1000-way softmax. To make train- ing faster, we used non-saturating neurons and a very efficient GPU implemen- tation of the convolution operation. To reduce overfitting in the fully-connected layers we employed a recently-developed regularization method called “dropout” that proved to be very effective. We also entered a variant of this model in the ILSVRC-2012 competition and achieved a winning top-5 test error rate of 15.3%, compared to 26.2% achieved by the second-best entry.
+
+Download paper:[here](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks)
+####Abstract：####
+
+><font size=1>We trained a large, deep convolutional neural network to classify the 1.2 million high-resolution images in the ImageNet LSVRC-2010 contest into the 1000 dif- ferent classes. On the test data, we achieved top-1 and top-5 error rates of 37.5% and 17.0% which is considerably better than the previous state-of-the-art. The neural network, which has 60 million parameters and 650,000 neurons, consists of five convolutional layers, some of which are followed by max-pooling layers, and three fully-connected layers with a final 1000-way softmax. To make train- ing faster, we used non-saturating neurons and a very efficient GPU implemen- tation of the convolution operation. To reduce overfitting in the fully-connected layers we employed a recently-developed regularization method called “dropout” that proved to be very effective. We also entered a variant of this model in the ILSVRC-2012 competition and achieved a winning top-5 test error rate of 15.3%, compared to 26.2% achieved by the second-best entry.</font>
 
 Last semester,I took part in a competition hold by [*CCF*](http://www.wid.org.cn/project/2015ccf/index.php) about clothing images classification. The dataset offered by [JD.com](https://www.jd.com/). It's the first time to solve such a difficult problem I have never faced. I remember very clearly that I came to a deadlock for several weeks. During that days,I found many many methods and read lots of papers. I didn't get the effective way until I read this paper. Due to lack of GPU,I trained the model by CPU for 5 days,the accuracy is on the verge of 56%. In the end,it's too late to commit the result and it made me upset.
 
 The most gratifying thing is I am interested in the deep learning.So I began to learn the CNNs and deep learning...I have learned the deep learning for half a year up to now.Of cource,I DIYed a workstation included GPU.The deep learning thought give me a lot of thinking and bewilderment.From some experiments of my own,I got better results than I expected.
 
-It‘s the first paper I read to learn the knowledge about CNNs.It leaded me to enter the door of deep learning.
-
-The paper published in NIPS2012,Hinton and his students achieved top-1 and top-5 error rates of 37.5% and 17.0% on the test data which is considerably better than the previous state-of-the-art in the ImageNet LSVRC-2010 contest and this article showed their methods.
+It‘s the first paper I read to learn the knowledge about CNNs.It leaded me to enter the door of deep learning.The paper published in NIPS2012,Hinton and his students achieved top-1 and top-5 error rates of 37.5% and 17.0% on the test data which is considerably better than the previous state-of-the-art in the ImageNet LSVRC-2010 contest and this article showed their methods.
 
 ####Objective####
 We trained a deep convolutional neural network,which has 60 million parameters and 650,000 neurons, consists of five convolutional layers, some of which are followed by max-pooling layers, and three fully-connected layers with a final 1000-way softmax.
@@ -29,7 +26,9 @@ We trained a deep convolutional neural network,which has 60 million parameters a
 The architecture of our network is summarized below.The net contains eight layers with weights.The first five are convolutional and the remaining three are fully-connected.The kernels of the second, fourth, and fifth convolutional layers are connected only to those kernel maps in the previous layer which reside on the same GPU. The kernels of the third convolutional layer are connected to all kernel maps in the second layer. The neurons in the fully-connected layers are connected to all neurons in the previous layer. Response-normalization layers follow the first and second convolutional layers. Max-pooling layers,follow both response-normalization layers as well as the fifth convolutional layer. The ReLU non-linearity is applied to the output of every convolutional and fully-connected layer.
 
 The first convolutional layer filters the 224 × 224 × 3 input image with 96 kernels of size 11 × 11 × 3 with a stride of 4 pixels (this is the distance between the receptive field centers of neighboring neurons in a kernel map). The second convolutional layer takes as input the (response-normalized and pooled) output of the first convolutional layer and filters it with 256 kernels of size 5 × 5 × 48. The third, fourth, and fifth convolutional layers are connected to one another without any intervening pooling or normalization layers. The third convolutional layer has 384 kernels of size 3 × 3 × 256 connected to the (normalized, pooled) outputs of the second convolutional layer. The fourth convolutional layer has 384 kernels of size 3 × 3 × 192 , and the fifth convolutional layer has 256 kernels of size 3 × 3 × 192. The fully-connected layers have 4096 neurons each.
-![](http://image.lxway.com/upload/d/5e/d5e1cd6334cbcc5ff2714620c4d29c08.gif)
+
+<img class="post-image" src="{{ site.baseurl }}/cnn.jpeg" />
+
 ######1. RelU Nonlinearity######
 Why do we use ReLU activation function?
 
@@ -66,6 +65,6 @@ We used an equal learning rate for all layers, which we adjusted manually throug
 Model         | Top-1 | Top-5
 --------------|-------|------
 Sparse coding | 47.1% | 28.2%
-SIFT + FVs    | 45.7% |bar%
-CNN           | 37.5% |baz%
+SIFT + FVs    | 45.7% | 25.7%
+CNN           | 37.5% | 17.0%
  
