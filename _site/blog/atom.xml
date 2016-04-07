@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://yourdomain.com//</id>
   <title></title>
-  <updated>2016-04-07T10:14:19+08:00</updated>
+  <updated>2016-04-07T10:25:50+08:00</updated>
   <link rel="alternate" href="http://yourdomain.com/"/>
   <link rel="self" href="http://yourdomain.com/blog/atom.xml"/>
   <author>
@@ -13,7 +13,7 @@
   
   <entry>
     <id>http://yourdomain.com/blog/paper_presentation1</id>
-    <title type="html">Paper Presentation(1)-ImageNet CLaaification with Deep Convolutional Neural Networks</title>
+    <title type="html">Paper Presentation(1)-ImageNet CLassification with Deep Convolutional Neural Networks</title>
     <updated>2016-04-07T00:00:00+08:00</updated>
     <link rel="alternate" href="http://yourdomain.com/blog/paper_presentation1"/>
     <content type="html">&lt;p&gt;Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton&lt;/p&gt;
