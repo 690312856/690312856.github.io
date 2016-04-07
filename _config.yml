@@ -35,10 +35,6 @@ navigation:
     - title: CV
       link: /cv.html
 
-comments:
-  provider:duoshuo
-  duoshuo:
-    short_name:690312856
 
 highlighter: true
 markdown: redcarpet 
