@@ -1,6 +1,6 @@
 ---
 layout: blog_post
-title: Paper Presentation(1)-ImageNet CLaaification with Deep Convolutional Neural Networks
+title: Paper Presentation(1)-ImageNet CLassification with Deep Convolutional Neural Networks
 date: 2016-04-07
 ---
 
