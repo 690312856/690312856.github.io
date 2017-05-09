@@ -6,11 +6,11 @@ layout: default
 # Curriculum Vitae
 
 |---|---|
-| **Name**&nbsp;&nbsp;&nbsp; | Andy_Lee |
+| **Name**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Andy_Lee |
 | &nbsp; ||
-| **Born**&nbsp;&nbsp;&nbsp; | 1995 |
+| **Born**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 1995 |
 | &nbsp; ||
-| **Citizenship**&nbsp;&nbsp; | Chinese |
+| **Citizenship**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Chinese |
 
 ## Education
 
