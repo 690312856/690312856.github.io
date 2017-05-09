@@ -5,13 +5,13 @@ layout: default
 
 # Curriculum vitae
 **Name**: Andy_Lee
-
+<br>
 **Born**: 1995
-
+</br>
 **Citizenship**: Chinese
 
 ## Education
-|||
+
 |---|---|
 | <div style="display: inline-block;white-space: nowrap;">**2016 - present**&nbsp;&nbsp;&nbsp;</div> |MSc, South China Unniversity of Technology |
 || *Focus*: Machine learning,Incremental learning,Computer vision |
@@ -21,7 +21,7 @@ layout: default
 || *GPA* 3.24/4.0 |
 
 ##Work experience
-|||
+
 |---|---|
 | <div style="display: inline-block;white-space: nowrap;">**2015**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> | *iOS application developer* |
 || Campus second-hand goods trading application on iOS. |
