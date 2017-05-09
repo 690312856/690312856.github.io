@@ -3,14 +3,14 @@ title: Curriculum vitae
 layout: default
 ---
 
-# Curriculum vitae
+# Curriculum Vitae
 
 |---|---|
-| **Name** | Andy_Lee |
+| **Name**&nbsp;&nbsp;&nbsp; | Andy_Lee |
 | &nbsp; ||
-| **Born** | 1995 |
+| **Born**&nbsp;&nbsp;&nbsp; | 1995 |
 | &nbsp; ||
-| **Citizenship** | Chinese |
+| **Citizenship**&nbsp;&nbsp; | Chinese |
 
 ## Education
 
