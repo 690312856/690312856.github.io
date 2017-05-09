@@ -4,11 +4,13 @@ layout: default
 ---
 
 # Curriculum vitae
-**Name**: Andy_Lee
 
-**Born**: 1995
-
-**Citizenship**: Chinese
+|---|---|
+| **Name** | Andy_Lee |
+| &nbsp; ||
+| **Born** | 1995 |
+| &nbsp; ||
+| **Citizenship** | Chinese |
 
 ## Education
 
@@ -20,7 +22,7 @@ layout: default
 | **2012 - 2016** | BSc in software engineering, South China Unniversity of Technology |
 || *GPA* 3.24/4.0 |
 
-##Work experience
+## Work experience
 
 |---|---|
 | **2015**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | *iOS application developer* |
