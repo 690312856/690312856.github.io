@@ -13,7 +13,7 @@ layout: default
 ## Education
 
 |---|---|
-| <div style="display: inline-block;white-space: nowrap;">**2016 - present**&nbsp;&nbsp;&nbsp;</div> |MSc, South China Unniversity of Technology |
+| **2016 - present**&nbsp;&nbsp;&nbsp; |MSc, South China Unniversity of Technology |
 || *Focus*: Machine learning,Incremental learning,Computer vision |
 || *Adivisor*: [Cai Yi](http://www2.scut.edu.cn/s/87/t/75/34/a2/info79010.htm)
 | &nbsp; ||
@@ -23,7 +23,7 @@ layout: default
 ##Work experience
 
 |---|---|
-| <div style="display: inline-block;white-space: nowrap;">**2015**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> | *iOS application developer* |
+| **2015**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | *iOS application developer* |
 || Campus second-hand goods trading application on iOS. |
 | &nbsp;||
 | **2014** | *algorithm designer* |
