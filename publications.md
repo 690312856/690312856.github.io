@@ -6,7 +6,7 @@ layout: default
 # My publications
 
 
-## Conference papers (with referee)
+## Conference papers
 
 |||
 |---|---|
